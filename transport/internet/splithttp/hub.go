@@ -168,21 +168,20 @@ func (h *requestHandler) ServeHTTP(writer http.ResponseWriter, request *http.Req
 			} else {
 				writer.Header().Set("X-Accel-Buffering", "no")
 				writer.Header().Set("Cache-Control", "no-store")
-				if !h.config.NoSSEHeader {
-					writer.Header().Set("Content-Type", "text/event-stream")
-				}
 				writer.WriteHeader(http.StatusOK)
 				if request.ProtoMajor != 1 && len(clientVer) > 0 && clientVer[0] >= 25 {
 					go func() {
 						for {
 							paddingLen := h.config.GetNormalizedXPaddingBytes().rand()
-							if paddingLen > 0 {
-								_, err := writer.Write(bytes.Repeat([]byte{'0'}, int(paddingLen)))
-								if err != nil {
-									break
-								}
+							if paddingLen <= 0 {
 								writer.(http.Flusher).Flush()
+								break
 							}
+							_, err := writer.Write(bytes.Repeat([]byte{'0'}, int(paddingLen)))
+							if err != nil {
+								break
+							}
+							writer.(http.Flusher).Flush()
 							time.Sleep(time.Duration(RangeConfig{From: 20, To: 80}.rand()) * time.Second)
 						}
 					}()
