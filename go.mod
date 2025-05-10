@@ -1,6 +1,7 @@
 module github.com/xtls/xray-core
 
 go 1.23
+toolchain go1.24.1
 
 require (
 	github.com/OmarTariq612/goech v0.0.0-20240405204721-8e2e1dafd3a0
@@ -12,7 +13,7 @@ require (
 	github.com/miekg/dns v1.1.62
 	github.com/pelletier/go-toml v1.9.5
 	github.com/pires/go-proxyproto v0.8.0
-	github.com/refraction-networking/utls v1.6.7
+	github.com/refraction-networking/utls v1.7.0
 	github.com/sagernet/sing v0.5.1
 	github.com/sagernet/sing-shadowsocks v0.2.7
 	github.com/seiflotfy/cuckoofilter v0.0.0-20240715131351-a2f2c23f1771
@@ -22,10 +23,10 @@ require (
 	github.com/xtls/quic-go v0.48.2
 	github.com/xtls/reality v0.0.0-20240712055506-48f0b2d5ed6d
 	go4.org/netipx v0.0.0-20231129151722-fdeea329fbba
-	golang.org/x/crypto v0.32.0
-	golang.org/x/net v0.34.0
-	golang.org/x/sync v0.10.0
-	golang.org/x/sys v0.29.0
+	golang.org/x/crypto v0.36.0
+	golang.org/x/net v0.38.0
+	golang.org/x/sync v0.12.0
+	golang.org/x/sys v0.31.0
 	golang.zx2c4.com/wireguard v0.0.0-20231211153847-12269c276173
 	google.golang.org/grpc v1.69.4
 	google.golang.org/protobuf v1.36.3
@@ -51,7 +52,7 @@ require (
 	go.uber.org/mock v0.4.0 // indirect
 	golang.org/x/exp v0.0.0-20240531132922-fd00a4e0eefc // indirect
 	golang.org/x/mod v0.21.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/time v0.7.0 // indirect
 	golang.org/x/tools v0.26.0 // indirect
 	golang.zx2c4.com/wintun v0.0.0-20230126152724-0fa3db229ce2 // indirect
